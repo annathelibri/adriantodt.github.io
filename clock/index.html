@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Clock</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-Bo21yfmmZuXwcN/9vKrA5jPUMhr7znVBBeLxT9MA4r2BchhusfJ6+n8TLGUcRAtL" crossorigin="anonymous">
+</head>
+<body class="h-100">
+<div class="d-flex justify-content-center align-items-center h-100"><h1 class="display-1" id="t">00:00:00</h1></div>
+<script>
+    (function (fn) {
+        if (document.readyState === "complete" || document.readyState === "interactive") setTimeout(fn, 1); else document.addEventListener("DOMContentLoaded", fn);
+    })(function () {
+        const t = document.getElementById("t");
+        setInterval(function () {
+            const d = new Date();
+            const s = d.getSeconds();
+            const m = d.getMinutes();
+            const h = d.getHours();
+            t.textContent = (h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+        });
+    });
+</script>
+</body>
+</html>
